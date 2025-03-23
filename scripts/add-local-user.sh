@@ -22,3 +22,21 @@ echo "This is a shell ${WORD}"
 
 # Append text to the variable.
 echo "${WORD}ing is fun!!"
+
+# This doesn't work.
+echo "$WORKing is funn!!"
+
+# Create a new variable.
+ENDING='ed'
+
+# Combine the two variables.
+echo "This is ${WORD}${ENDING}."
+
+# Change the value stored in the ENDING variable. (Reassignment.)
+
+ENDING='ing'
+echo "${WORD}${ENDING} is fun!"
+
+# Reassign value to ENDING.
+ENDING='s'
+echo "You are going to write many ${WORD}${ENDING} in this class!"
