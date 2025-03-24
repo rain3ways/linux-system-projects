@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Just for update commit
 # This script displays various information to the screen.
 
 # Display 'Hello'
