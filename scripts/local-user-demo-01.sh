@@ -4,7 +4,7 @@
 # Display 'Hello'
 echo 'Hello'
 
-# Assign  a valur to a variable
+# Assign a value to a variable
 WORD='script'
 
 # Display that value using the variable.
