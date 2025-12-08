@@ -14,19 +14,38 @@ then
 	exit 1
 fi
 # The first is the user name.
-
+USER_NAME=$1
+shift
 # The rest of the parameters are for the account comments.
-
+COMMENT=$*
 # Generate a password.
-
+PASSWORD=$(date +%s%N"${RANDOM}${RANDOM}" | sha256sum | head -c32)
+CHAR_1=$(echo '!@#$%^&*()_+' | fold -w 1 | shuf -n 1)
+PASSWORD="${PASSWORD}${CHAR_1}"
 # Create the user with the password.
-
+useradd -m -c "${COMMENT}" "${USER_NAME}"
 # Check to see if the useradd command succeeded.
+if [[ $? -ne 0 ]]
+then
+	echo "Fail to create user."
+	exit 1
+fi
 
 # Set the password.
-
-# Check to see if the passwd command succeeded.
-
-# Force password change on first login. 
-
-# Display the username, password, and the host where the user was created.
+echo "${USER_NAME}:${PASSWORD}" | chpasswd
+if [[ $? -ne 0 ]]
+then
+	echo "Fail to set password."
+	exit 1
+fi
+# Force password change on first login.
+passwd -e "${USER_NAME}"
+if [[ $? -ne 0 ]]
+then
+	echo "Fail to expire password."
+	exit 1
+fi
+#  Display the username, password, and the host where the user was created.
+echo "Username: ${USER_NAME}"
+echo "Password: ${PASSWORD}"
+echo "Host: $(hostname)"
