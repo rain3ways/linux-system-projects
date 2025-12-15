@@ -1,0 +1,6 @@
+2025-12-15T09:00:01Z INFO  request_id=aa1 user=rain ip=10.0.0.5 path=/login
+2025-12-15T09:00:02Z ERROR request_id=aa2 user=rain ip=10.0.0.5 code=E401 msg="invalid password"
+2025-12-15T09:00:05Z INFO  request_id=aa3 user=guest ip=10.0.0.8 path=/products
+2025-12-15T09:00:07Z ERROR request_id=aa4 user=guest ip=10.0.0.8 code=E500 msg="db timeout"
+2025-12-15T09:00:08Z ERROR request_id=aa5 user=rain ip=10.0.0.5 code=E401 msg="invalid password"
+2025-12-15T09:00:10Z INFO  request_id=aa6 user=bot ip=10.0.0.9 path=/health
